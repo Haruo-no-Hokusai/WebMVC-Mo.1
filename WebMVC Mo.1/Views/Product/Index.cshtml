@@ -1,0 +1,22 @@
+@model dynamic;
+
+<div>@Model.Title</div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var product in Model.product){
+        <tr>
+            <th scope="row">@product.Id</th>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+            <td>@product.Amount</td>
+        </tr>}
+    </tbody>
+</table>
