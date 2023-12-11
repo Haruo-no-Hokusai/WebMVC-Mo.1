@@ -1,0 +1,26 @@
+﻿@model Product
+
+<form asp-action="Add">
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Name</label>
+        <input type="Name" class="form-control" id="Name">
+        <span asp></span> 
+    </div>
+     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Price</label>
+        <input type="Price" class="form-control" id="Price">
+    </div>
+     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Amount</label>
+        <input type="Amount" class="form-control" id="Amount">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a class="btn btn-primary" asp-action="Index">Back</a>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Product>
+
+<div>
+    <a class="btn btn-primary" asp-action="Add">Add</a>
+    @if(TempData["OK"] != null)
+    {
+        <div class="alert alert-primary" role="alert">
+            404
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(p => p.Id)</th>
+                <th scope="col">@Html.DisplayNameFor(p => p.Name)</th>
+                <th scope="col">@Html.DisplayNameFor(p => p.Price)</th>
+                <th scope="col">@Html.DisplayNameFor(p => p.Amount)</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Product in Model)
+            {
+            <tr>
+                <td>@Product.Id</td>
+                <td>@Product.Name</td>
+                <td>@Product.Price</td>
+                <td>@Product.Amount</td>
+                <td>
+                    <a class="btn btn-primary">Edit</a>
+                    <a class="btn btn-primary" onclick="return confirm('Are you sure')"
+                    asp-action="Delate" asp-route-id="@Product.Id">Delate</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
