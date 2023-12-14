@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC-Concept", "MVC-Concept\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC-Depency", "MVC-Depency\MVC-Depency.csproj", "{84DB4C80-1646-4CC0-BF2B-70D48FF5233F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code-First-Test", "Code-First-Test\Code-First-Test.csproj", "{6C1153D1-24F5-4096-9C23-5EE5E28A448B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Code-First-Test", "Code-First-Test\Code-First-Test.csproj", "{6C1153D1-24F5-4096-9C23-5EE5E28A448B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataBase1to1toMany", "TestDataBase1to1toMany\TestDataBase1to1toMany.csproj", "{A2E1FF04-1014-4BC2-91C2-0A4A61C39401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6C1153D1-24F5-4096-9C23-5EE5E28A448B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C1153D1-24F5-4096-9C23-5EE5E28A448B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C1153D1-24F5-4096-9C23-5EE5E28A448B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E1FF04-1014-4BC2-91C2-0A4A61C39401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E1FF04-1014-4BC2-91C2-0A4A61C39401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E1FF04-1014-4BC2-91C2-0A4A61C39401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E1FF04-1014-4BC2-91C2-0A4A61C39401}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

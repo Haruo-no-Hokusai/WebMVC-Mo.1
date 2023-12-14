@@ -41,7 +41,32 @@ namespace Code_First_Test.Controllers
         [HttpPost]
         public IActionResult Add(Product product)
         {
-            return View();
+            if(!ModelState.IsValid) 
+            {
+                return View();
+            }
+            ps.AddProduct(product);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int Id)
+        {
+            var product = ps.GetById(Id);
+            if (product == null)
+            {
+                TempData["OK"] = true;
+            }
+            return View(product);
+        }
+        [HttpPost]
+        public IActionResult Edit(Product product) 
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            ps.UpdateProduct(product);
+            return RedirectToAction("Index");
         }
 
     }

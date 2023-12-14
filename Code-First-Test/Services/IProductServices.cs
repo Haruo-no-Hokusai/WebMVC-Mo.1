@@ -8,6 +8,8 @@ namespace Code_First_Test.Services
         IEnumerable<Product> GetAll();
         Product GetById(int id);
         void Delate(Product product);
+        void AddProduct(Product product);
+        void UpdateProduct(Product product);
 
     }
 }

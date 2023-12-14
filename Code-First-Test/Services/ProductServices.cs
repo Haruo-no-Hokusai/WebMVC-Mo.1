@@ -13,7 +13,12 @@ namespace Code_First_Test.Services
             db = _db;
             products = new List<Product>();
             if( db.Products.Count() == 0 ) GenerateProduct();
+        }
 
+        public void AddProduct(Product product)
+        {
+            db.Products.Add(product);
+            db.SaveChanges();
         }
 
         public void Delate(Product product)
@@ -41,14 +46,19 @@ namespace Code_First_Test.Services
 
         public IEnumerable<Product> GetAll()
         {
-            return db.Products.ToList();
+            return db.Products.OrderByDescending(p => p.Id).ToList();
         }
 
         public Product GetById(int id)
         {
             var product = db.Products.Find(id);
             return product;
-            
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            db.Products.Update(product);
+            db.SaveChanges();
         }
     }
 }
