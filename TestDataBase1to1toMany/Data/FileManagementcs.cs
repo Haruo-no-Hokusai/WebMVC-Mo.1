@@ -17,5 +17,7 @@ namespace TestDataBase1to1toMany.Data
 
         public DbSet<Products> Product { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Component> Components { get; set; }
+        public DbSet<Feature> Features { get; set; }
     }
 }
