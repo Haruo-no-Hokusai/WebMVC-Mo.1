@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestDataBase1to1toMany.Data;
 
@@ -11,9 +12,11 @@ using TestDataBase1to1toMany.Data;
 namespace TestDataBase1to1toMany.Migrations
 {
     [DbContext(typeof(FileManagementcs))]
-    partial class FileManagementcsModelSnapshot : ModelSnapshot
+    [Migration("20231216031457_Extend")]
+    partial class Extend
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,31 +165,7 @@ namespace TestDataBase1to1toMany.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("TestDataBase1to1toMany.Models.ProductExtend", "ProductExtend", b1 =>
-                        {
-                            b1.Property<int>("ComponentId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Color")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Weight")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.HasKey("ComponentId");
-
-                            b1.ToTable("Components");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ComponentId");
-                        });
-
                     b.Navigation("Feature");
-
-                    b.Navigation("ProductExtend")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("TestDataBase1to1toMany.Models.ComponentToProduct", b =>
