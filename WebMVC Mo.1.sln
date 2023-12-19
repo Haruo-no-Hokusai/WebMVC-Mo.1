@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Code-First-Test", "Code-Fir
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataBase1to1toMany", "TestDataBase1to1toMany\TestDataBase1to1toMany.csproj", "{A2E1FF04-1014-4BC2-91C2-0A4A61C39401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageManagement", "ImageManagement\ImageManagement.csproj", "{649C9CE5-A0BA-4B6F-93F6-E747487A8BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageManagement", "ImageManagement\ImageManagement.csproj", "{649C9CE5-A0BA-4B6F-93F6-E747487A8BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashHaveSalt", "HashHaveSalt\HashHaveSalt.csproj", "{3074FD52-9F86-4F1A-8B36-B1D762BFC7C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{649C9CE5-A0BA-4B6F-93F6-E747487A8BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{649C9CE5-A0BA-4B6F-93F6-E747487A8BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{649C9CE5-A0BA-4B6F-93F6-E747487A8BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3074FD52-9F86-4F1A-8B36-B1D762BFC7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3074FD52-9F86-4F1A-8B36-B1D762BFC7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3074FD52-9F86-4F1A-8B36-B1D762BFC7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3074FD52-9F86-4F1A-8B36-B1D762BFC7C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
