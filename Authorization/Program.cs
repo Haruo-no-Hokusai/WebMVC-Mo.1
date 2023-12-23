@@ -3,21 +3,24 @@ global using Authorization.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Authorization.Data;
+using Authorization.Service;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AuthorizationContextConnection") ?? throw new InvalidOperationException("Connection string 'AuthorizationContextConnection' not found.");
 
 builder.Services.AddDbContext<AuthorizationContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<AuthorizationUser>(options => {
+builder.Services.AddDefaultIdentity<AuthorizationUser>(options =>
+{
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequiredLength = 8;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
-}).AddEntityFrameworkStores<AuthorizationContext>();
+}).AddRoles<IdentityRole>().AddEntityFrameworkStores<AuthorizationContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IRoleService, RoleService>();
 
 var app = builder.Build();
 
