@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AuthorizationUser> 
+@inject UserManager<AuthorizationUser> usermanager
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Role</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            var role = await usermanager.GetRolesAsync(p);
+            <tr>
+                <th scope="row">@p.Id</th>
+                <td>@p.UserName</td>
+                <td>@p.Email</td>
+                <td>@role[0]</td>
+                <td>
+                    <a class="btn btn-primary">Edit</a>
+                    <a class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
