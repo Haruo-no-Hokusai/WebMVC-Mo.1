@@ -1,6 +1,6 @@
 global using Authorization.Areas.Identity.Data;
+global using Microsoft.AspNetCore.Identity;
 
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Authorization.Data;
 using Authorization.Service;
