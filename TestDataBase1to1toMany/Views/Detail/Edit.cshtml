@@ -1,0 +1,49 @@
+﻿@model TestDataBase1to1toMany.Models.ProductDetail
+
+@inject IPservice Product
+
+<h1>Edit</h1>
+
+<h4>Detail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div>
+                <a>Product</a>
+                <select asp-for="ProductsId" class="form-select">
+                    @foreach (var item in @Product.GetAllProduct())
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                    <option disabled selected>Product</option>
+                </select>
+                <span asp-validation-for="ProductsId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Image" class="form-label"></label>
+                <input asp-for="Image" class="form-control">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Products>
+
+@inject ICservice catagoryModel
+
+<a class="btn btn-primary" asp-action="Add">Add</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(p => p.Id)</th>
+            <th scope="col">@Html.DisplayNameFor(p => p.Name)</th>
+            <th scope="col">@Html.DisplayNameFor(p => p.Price)</th>
+            <th scope="col">@Html.DisplayNameFor(p => p.Amount)</th>
+            <th scope="col">@Html.DisplayNameFor(p => p.CategoryId)</th>
+            <th scope="col">@Html.DisplayNameFor(p => p.ProductExtend.Color)</th>
+            <th scope="col">@Html.DisplayNameFor(p => p.ProductExtend.Weight)</th>
+            <th scope="col"> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <th scope="row">@p.Id</th>
+                    <td>@p.Name</td>
+                    <td>@p.Price</td>
+                    <td>@p.Amount</td>
+                    <td>@catagoryModel.GetName(p.CategoryId)</td>
+                    <td>@p.ProductExtend.Color</td>
+                    <td>@p.ProductExtend.Weight</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@p.Id">Edit</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@p.Id"
+                           onclick="return confirm('Are you sure?')">Delete</a>
+                        <a class="btn btn-primary" asp-action="Detail" asp-route-id="@p.Id">Detail</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

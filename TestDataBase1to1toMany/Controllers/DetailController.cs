@@ -2,19 +2,18 @@
 
 namespace TestDataBase1to1toMany.Controllers
 {
-    public class FeatureController : Controller
+    public class DetailController : Controller
     {
-        private readonly IFservice ft;
+        private readonly IDservice pd;
 
-        public FeatureController(IFservice ft)
+        public DetailController(IDservice pd) 
         {
-            this.ft = ft;
+            this.pd = pd;
         }
-
         public IActionResult Index()
         {
-            var Feature = ft.GetAllFeature();
-            return View(Feature);
+            var details = pd.GetAllDetail();
+            return View(details);
         }
         public async Task<IActionResult> Add()
         {
@@ -22,40 +21,46 @@ namespace TestDataBase1to1toMany.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(Feature feature)
+        public async Task<IActionResult> Add(ProductDetail details)
         {
             if (ModelState.IsValid) return View();
 
-            await ft.AddFeature(feature);
+            await pd.AddDetail(details);
 
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> Edit(int id)
         {
-            var feature = await ft.GetFeature(id);
-            return View(feature);
+            var detail = await pd.GetDetail(id);
+
+            if (detail == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(detail);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Feature feature)
+        public async Task<IActionResult> Edit(ProductDetail detail)
         {
             if (ModelState.IsValid) return View();
 
-            await ft.UbdateFeature(feature);
+            await pd.UbdateDetail(detail);
 
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> Delete(int id)
         {
-            var feature = await ft.GetFeature(id);
-            if (feature == null)
+            var detail = await pd.GetDetail(id);
+            if (detail == null)
             {
                 return RedirectToAction("Index");
             }
 
             else
             {
-                await ft.DeleteFeature(feature);
+                await pd.DeleteDetail(detail);
             }
             return RedirectToAction("Index");
         }

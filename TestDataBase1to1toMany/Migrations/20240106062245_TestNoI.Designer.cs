@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestDataBase1to1toMany.Data;
 
@@ -11,9 +12,11 @@ using TestDataBase1to1toMany.Data;
 namespace TestDataBase1to1toMany.Migrations
 {
     [DbContext(typeof(FileManagementcs))]
-    partial class FileManagementcsModelSnapshot : ModelSnapshot
+    [Migration("20240106062245_TestNoI")]
+    partial class TestNoI
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

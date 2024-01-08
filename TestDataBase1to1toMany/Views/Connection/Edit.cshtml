@@ -1,0 +1,51 @@
+﻿@model ComponentToProduct
+
+@inject IPservice Product
+@inject IComservice Component
+
+<h1>Edit</h1>
+
+<h4>Component</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <a>Product</a>
+                <select asp-for="ProductsId" class="form-select">
+                    @foreach (var item in Product.GetAllProduct())
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                    <option disabled selected>Product</option>
+                </select>
+                <span asp-validation-for="ProductsId" class="text-danger"></span>
+            </div>
+            <div>
+                <a>Component</a>
+                <select asp-for="ComponentId" class="form-select">
+                    @foreach (var item in Component.GetAllComponent())
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                    <option disabled selected>Component</option>
+                </select>
+                <span asp-validation-for="ComponentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" asp-route-ComponentId="@ViewBag.Cid" asp-route-ProductId="@ViewBag.Pid"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
